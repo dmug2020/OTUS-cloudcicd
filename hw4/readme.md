@@ -4,5 +4,7 @@
 2. В Личном кабинете для данного ДЗ приложить ссылку или скриншот проекта в Gitlab, AWS CodeCommit или Azure DevOps.
 
 Создал репозиторий 
-и закомитил туда файлы
+и закомитил туда файлы проекта CRATE
+https://github.com/ugaidmitry/cloudcicd/blob/master/hw4/Screenshot%20from%202020-04-02%2017-44-26.png
+
 
