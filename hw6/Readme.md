@@ -6,6 +6,14 @@
 2) запустить и привязать к проекту gitlab-runner
 3) написать простейший .gitlab-ci.yml пайплайн по примерам из документации
 4) добиться успешного выполнения пайплайна
-Критерии оценки: Успехом выполнения задания считается успешное выполнение 
-пайплайна, можно приложить скриншот, или дать доступ к проекту (достаточно роли reporter) 
-Konstantin Lisichnikov @dromedarrius 
+
+Решение: Сампайплайн проходит в gitlab локальный далее docker образы он пушит в azure registry
+
+1)Сделал форк git clone https://gitlab.com/SablinIgor/crate
+2)Установил https://bitnami.com/stack/gitlab/virtual-machine - досупна по dima.com
+3)Создал самоподписанный сертификат dima-com.pem
+4)в локальной сети создал dns запись на dima.com 
+5)создал еще одну vm - gitrunner - скопировал туда сертификат и зарегестрировал раннер
+  sudo gitlab-runner register --tls-ca-file dima-com.pem
+6)поправил .gitlab-ci.yml и конфиг скрипты  
+  
