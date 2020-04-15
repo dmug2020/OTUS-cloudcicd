@@ -24,4 +24,5 @@ https://github.com/ugaidmitry/cloudcicd/blob/master/hw6/dns.png  -dns устан
   
   
 6)поправил .gitlab-ci.yml и конфиг скрипты  
+7)https://github.com/ugaidmitry/cloudcicd/blob/master/hw6/passed.png - выполнил пайплайн
   
