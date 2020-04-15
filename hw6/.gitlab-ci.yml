@@ -1,0 +1,65 @@
+stages:
+  - build
+  - push
+
+
+.build: &build
+  tags:
+  - crate
+  stage: build
+  before_script:
+   - .ci/config.sh
+  script:
+   - .ci/build_push.sh
+
+.ecr_push: &ecr_push
+  stage: push
+  tags:
+  - crate
+  before_script:
+  - .ci/azurecliinstall.sh
+  - az acr login -n dmug2020.azurecr.io -u dmug2020 -p $AZUREPASS
+  - docker login dmug2020.azurecr.io -u dmug2020 -p $AZUREPASS
+ 
+  script:
+  - docker tag ${IMAGE_NAME}:${VERSION} $AZUREREP/${IMAGE_NAME}:${VERSION}
+  - docker push $AZUREREP/${IMAGE_NAME}:${VERSION}
+
+
+
+.GLOBAL: &global_variables
+   VERSION: ugaiv0.0.1
+   
+
+ecr_push_api:
+  extends: .ecr_push
+  variables:
+   
+    <<: *global_variables
+    IMAGE_NAME: crate_api
+
+ecr_push_web:
+  extends: .ecr_push
+  variables:
+    
+    <<: *global_variables
+    IMAGE_NAME: crate_web
+    
+api_build:
+  extends: .build
+  variables:
+    <<: *global_variables
+    WORKDIR: /code/api/
+    DOCKERFILE: crate_api
+    IMAGE_NAME: crate_api
+    EXPOSE_PORT: 8000
+
+web_build:
+  extends: .build
+  variables:
+    <<: *global_variables
+    WORKDIR: /code/web/
+    DOCKERFILE: crate_web
+    IMAGE_NAME: crate_web
+    EXPOSE_PORT: 3000
+
