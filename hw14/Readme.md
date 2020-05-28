@@ -46,12 +46,12 @@ stage-env-destroy:
      
     when: manual  
     
- Также в пайплайне можно запушить в продакшен
-
-prod-env:
+ Также в пайплайне можно запушить в продакшен https://github.com/ugaidmitry/cloudcicd/blob/master/hw14/poruction%20env.png
+ 
+ prod-env:
       stage: production
       variables:
-        DOCKER_HOST: tcp://192.168.1.19:2376 
+        DOCKER_HOST: tcp://192.168.1.19:2376
         DOCKER_TLS_VERIFY: 1
         DOCKER_CERT_PATH: "/certs"
          
@@ -68,7 +68,7 @@ prod-env:
       - echo "$TLSKEY" > $DOCKER_CERT_PATH/key.pem
       
       - docker login dima.com:4567 -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
-      - docker pull dima.com:4567/root/mango:latest  --- скачиваем образ с тегом лайтест
+      - docker pull dima.com:4567/root/mango:latest
      
       
       - docker stack deploy -c stack.yml prod --with-registry-auth
@@ -77,11 +77,11 @@ prod-env:
      
       environment:
           name: production/$CI_COMMIT_REF_NAME
-          url: http://dev.com --- это наш продакешен 
-          сайт https://github.com/ugaidmitry/cloudcicd/blob/master/hw14/poruction%20env.png
+          url: http://dev.com
       
       only:
         - master
      
       when: manual
+
 
