@@ -46,10 +46,14 @@ stage-env-destroy:
      
     when: manual  
     
- Также в пайплайне можно запушить в продакшен https://github.com/ugaidmitry/cloudcicd/blob/master/hw14/poruction%20env.png
+ Также в пайплайне можно запушить в продакшен 
+ https://github.com/ugaidmitry/cloudcicd/blob/master/hw14/poruction%20env.png
+ 
  
  prod-env:
+ 
       stage: production
+      
       variables:
         DOCKER_HOST: tcp://192.168.1.19:2376
         DOCKER_TLS_VERIFY: 1
