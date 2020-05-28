@@ -1,7 +1,7 @@
 Для указанного в ДЗ пайплайна (в Gitlab, Amazon Web Services или Azure DevOps на выбор) 
 реализовать динамическое формирование окружения для развертывания feature-branch веток.
 
-1)Создал кластер docker-swarm (manager - worker)
+1)Создал кластер docker-swarm (manager - worker) https://github.com/ugaidmitry/cloudcicd/blob/master/hw14/swarm.png
 
 2)Настроил DNS для GITLAB CE - DIMA.COM и dev.com https://github.com/ugaidmitry/cloudcicd/blob/master/hw14/dns%20home.png
 (regexp для субдоменов - чтобы использовать dynamic enviroment)
@@ -13,6 +13,7 @@
 stages:
     - stage
     - production
+
 при при пушинге в branche - featureone - руками можно запустить окружение 
 environment:
         name: stage/$CI_COMMIT_REF_NAME
