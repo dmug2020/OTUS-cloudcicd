@@ -6,7 +6,7 @@
 2)Настроил DNS для GITLAB CE - DIMA.COM и dev.com https://github.com/ugaidmitry/cloudcicd/blob/master/hw14/dns%20home.png
 (regexp для субдоменов - чтобы использовать dynamic enviroment)
 
-3)Код запушил на гитлаб https://gitlab.com/dmug999
+3)Код запушил на гитлаб https://gitlab.com/dmug999/ugai
 
 
 В итоге имеем две стадии
