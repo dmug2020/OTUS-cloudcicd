@@ -10,13 +10,14 @@ stages:
 
     - build
     
-    - deploy_dev_azure
+    - deploy_dev_azure #динамическое окружение
     
-    - remove_dev_azure
+    - remove_dev_azure #динамическое окружение
     
-    - deploy_to_stage
+    - deploy_to_stage #динамическое окружение
     
     - deploy_to_prod
+    
     
     
     Они запускаются в локальном GITLAB CE (virtual box)
